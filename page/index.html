@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Graph ENTO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="tryGetValue()">
+    <nav>
+        <ul>
+            <li><button onclick="toggle('main')">Ento</button></li>
+            <li><button onclick="toggle('std')">Over Standard</button></li>
+            <li><button onclick="toggle('upImage')">Upload Image</button></li>
+            <li><button onclick="toggle('approve')">Approve Data</button></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div id="selected"></div>
+        <div class="main" id="main" onchange="tryGetValue()">
+            <div id="inputEnto"></div>
+            <div id="graph" onchange="calculateEnto()"></div>
+        </div>
+        <div class="std" id="std"></div>
+        <div class="upImage" id="upImage"></div>
+        <div class="approve" id="approve"></div>
+    </div>
+
+    <script src="./grid-canvas.js"></script>
+    <script src="./input-ento.js"></script>
+    <script src="./select.js"></script>
+    <script src="./overSTD.js"></script>
+    <script src="./approve.js"></script>
+    <script src="./uploadImg.js"></script>
+    <script>
+        const allID = ['main','std','upImage','approve']
+        const toggle=(idName)=>{
+            for(let i in allID){
+                if(allID[i] != idName){
+                    const target = document.getElementById(allID[i])
+                    target.style.display = "none"
+                }else{
+                    const target2 = document.getElementById(idName)
+                    target2.style.display = "block"
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
